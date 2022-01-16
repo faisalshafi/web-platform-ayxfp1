@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axelerant Test</title>
+    <!-- CSS only -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;1,300;1,400;1,900&display=swap');
+      * {
+        font-family: Almarai;
+      }
+
+      .topPanel .alert-fe {
+        background-color: #fff7f3;
+        color: #212121;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        margin-bottom: 0px;
+      }
+      .topPanel .alert-fe .nopadding {
+        padding: 0;
+      }
+      .topPanel .alert-fe img {
+        margin: 0px 16px;
+      }
+
+      .navigation .navbar {
+        background-color: #5c524d;
+        padding: 0px;
+      }
+      .navigation .navbar .navbar-collapse {
+        color: rgba(255, 255, 255, 0.75);
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+      .navigation .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+        padding: 30px;
+      }
+      .navigation .navbar .navbar-collapse .navbar-nav .nav-item .active {
+        border-bottom: 4px solid #86eaae;
+      }
+
+      .formSection .container {
+        border-bottom: 1px solid #d5d5d5;
+        padding-bottom: 60px;
+      }
+      .formSection .container .leftImage {
+        padding-top: 60px;
+      }
+      .formSection .container .leftImage img {
+        width: 372px;
+        height: 340px;
+      }
+      .formSection .container .formContent {
+        padding-top: 60px;
+      }
+      .formSection .container .formContent h1 {
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 48px;
+        padding-bottom: 30px;
+      }
+      .formSection .container .formContent .form-floating > .form-control,
+      .formSection .container .formContent .form-floating > .form-select {
+        height: 86px;
+      }
+      .formSection .container .formContent .form-floating > label {
+        padding: 1.5rem 0.75rem;
+        font-size: 24px;
+        color: #757575;
+        font-weight: 100;
+      }
+
+      .configurationSection h2 {
+        padding-top: 64px;
+        padding-bottom: 32px;
+      }
+      .configurationSection .img-radio {
+        margin-top: 60px;
+      }
+      .configurationSection .accordianDiv {
+        background: #fafafa;
+        border: 1px solid #d5d5d5;
+        padding: 32px;
+        /* Inside Auto Layout */
+        flex: none;
+        order: 1;
+        flex-grow: 1;
+      }
+      .configurationSection .d-grid {
+        display: inline-flex !important;
+      }
+      .configurationSection .d-grid img {
+        margin-right: 5px;
+      }
+      .configurationSection .d-grid .updateButton {
+        background: #fc732f;
+        border: 1px solid #fc732f;
+        border-radius: 4px;
+        margin-left: 46px;
+        margin-top: 30px;
+        height: 50px;
+        margin-right: 0px;
+        margin-bottom: 100px;
+      }
+      .configurationSection .d-grid .cancelButton {
+        background: white;
+        color: #fc732f;
+        border: 1px solid #fc732f;
+        border-radius: 4px;
+        margin-top: 30px;
+        height: 50px;
+        margin-bottom: 100px;
+      }
+
+      .swal2-popup {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+      }
+
+      @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        .formSection .col {
+          flex: none;
+        }
+        .formSection .col img {
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        .navigation .navbar-dark .navbar-toggler-icon {
+          background-image: url('https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Vector-3.png');
+        }
+        .navigation .navbar-dark .navbar-account-icon {
+          background-image: url('https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Vector-4.png');
+          display: inline-block;
+          width: 1.5em;
+          height: 1.5em;
+          vertical-align: middle;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100%;
+        }
+        .navigation .navbar-collapse {
+          border-top: 1px solid rgba(0, 0, 0, 0.25);
+          margin-top: 30px;
+        }
+        .navigation .navbar-collapse .navbar-nav .nav-item .nav-link {
+          padding-left: 0 !important;
+        }
+        .navigation .navbar {
+          padding-top: 30px;
+          padding-bottom: 30px;
+        }
+        .navigation .container .navbar-brand {
+          width: 180px;
+          margin: auto;
+        }
+
+        .configurationSection .d-grid {
+          display: grid !important;
+        }
+        .configurationSection .d-grid .updateButton {
+          margin-bottom: 0px;
+        }
+        .configurationSection .d-grid .cancelButton {
+          margin-left: 46px;
+        }
+      }
+      @media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+        .col-sm-4 {
+          flex: none;
+          width: 100%;
+        }
+      }
+      @media all and (device-width: 1024px) and (device-height: 768px) and (orientation: landscape) {
+        .col-sm-4 {
+          flex: none;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="topPanel">
+      <div class="alert alert-primary alert-fe" role="alert">
+        <div class="container">
+          <div class="row">
+            <div class="col-auto nopadding">
+              <img
+                src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Vector-5.png"
+                class="img-fluid"
+                alt="alert-fe"
+              />
+            </div>
+            <div class="col nopadding">
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim velit mollit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="navigation">
+      <nav class="navbar navbar-expand-lg navbar-dark static-top">
+        <div class="container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/logo.png"
+              class="img-fluid"
+              alt="logo"
+              height="36"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-account-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <section class="formSection">
+      <div class="container">
+        <div class="row">
+          <div class="leftImage col">
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Image.png"
+              class="img-fluid"
+              alt="PhotoGraph"
+            />
+          </div>
+          <div class="formContent col">
+            <h1>My Account</h1>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInputName"
+                placeholder="Name"
+              />
+              <label for="floatingInputName">Name</label>
+            </div>
+            <div class="row">
+              <div class="col-sm-4 col-xs-4">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingMobile"
+                    placeholder="Mobile"
+                  />
+                  <label for="floatingMobile">Mobile</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="floatingEmail"
+                    placeholder="Email"
+                  />
+                  <label for="floatingEmail">Email</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="configurationSection">
+      <div class="container">
+        <h2>Select Configuration</h2>
+        <div class="row">
+          <div class="col-auto img-radio" id="img-radio1">
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Ellipse 1.svg"
+              alt="uncheckradio"
+              id="uncheck1"
+            />
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Vector-2.png"
+              alt="checkradio"
+              id="check1"
+              class="d-none"
+            />
+          </div>
+          <div class="col">
+            <div class="accordianDiv">
+              <h5 id="heading1">Manual Configuration</h5>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint.
+              </p>
+            </div>
+            <div id="hiddenDiv1" class="accordianDiv d-none">
+              <h5>Services Access</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                sed massa leo. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Praesent eu varius felis. Integer posuere urna
+                ut mi porta, vel fringilla dolor convallis. Sed laoreet sodales
+                sapien vel vestibulum. Nulla dictum eros ut efficitur porttitor.
+                Mauris dignissim, lectus sit amet euismod pretium, ex purus
+                condimentum erat, eu feugiat nisi ipsum ac eros.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto img-radio" id="img-radio2">
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Ellipse 1.svg"
+              alt="uncheckradio"
+              id="uncheck2"
+            />
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Vector-2.png"
+              alt="checkradio"
+              id="check2"
+              class="d-none"
+            />
+          </div>
+          <div class="col">
+            <div class="accordianDiv">
+              <h5 id="heading2">Semi-auto Configuration</h5>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint.
+              </p>
+            </div>
+            <div id="hiddenDiv2" class="accordianDiv d-none">
+              <h5>Services Access</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                sed massa leo. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Praesent eu varius felis. Integer posuere urna
+                ut mi porta, vel fringilla dolor convallis. Sed laoreet sodales
+                sapien vel vestibulum. Nulla dictum eros ut efficitur porttitor.
+                Mauris dignissim, lectus sit amet euismod pretium, ex purus
+                condimentum erat, eu feugiat nisi ipsum ac eros.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto img-radio" id="img-radio3">
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Ellipse 1.svg"
+              alt="uncheckradio"
+              id="uncheck3"
+            />
+            <img
+              src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Vector-2.png"
+              alt="checkradio"
+              id="check3"
+              class="d-none"
+            />
+          </div>
+          <div class="col">
+            <div class="accordianDiv">
+              <h5 id="heading3">Automatic Configuration</h5>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint.
+              </p>
+            </div>
+            <div id="hiddenDiv3" class="accordianDiv d-none">
+              <h5>Services Access</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                sed massa leo. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Praesent eu varius felis. Integer posuere urna
+                ut mi porta, vel fringilla dolor convallis. Sed laoreet sodales
+                sapien vel vestibulum. Nulla dictum eros ut efficitur porttitor.
+                Mauris dignissim, lectus sit amet euismod pretium, ex purus
+                condimentum erat, eu feugiat nisi ipsum ac eros.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary updateButton">
+              <img
+                src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Change Picture/-1.png"
+                alt="changePicture"
+                onclick="executeExample('errorType')"
+              />
+              Update Configuration
+            </button>
+
+            <button type="button" class="btn btn-primary cancelButton">
+              <img
+                src="https://raw.githubusercontent.com/faisalshafi/web-platform-x3rwzj/master/assets/images/Change Picture/cancel.png"
+                alt="changePicture"
+              />
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      $(document).on('click', function (event) {
+        if (event.target.id.indexOf('1') != -1) {
+          $('#uncheck1').addClass('d-none');
+          $('#check1').removeClass('d-none');
+          $('#uncheck2').removeClass('d-none');
+          $('#check2').addClass('d-none');
+          $('#uncheck3').removeClass('d-none');
+          $('#check3').addClass('d-none');
+          $('#hiddenDiv1').removeClass('d-none');
+          $('#heading1').css('font-weight', '700');
+          $('#heading2').css('font-weight', 'normal');
+          $('#heading3').css('font-weight', 'normal');
+          $('#hiddenDiv2').addClass('d-none');
+          $('#hiddenDiv3').addClass('d-none');
+          $('#check1').removeClass('d-none');
+        }
+        if (event.target.id.indexOf('2') != -1) {
+          $('#uncheck1').removeClass('d-none');
+          $('#check1').addClass('d-none');
+          $('#uncheck2').addClass('d-none');
+          $('#check2').removeClass('d-none');
+          $('#uncheck3').removeClass('d-none');
+          $('#check3').addClass('d-none');
+          $('#hiddenDiv1').addClass('d-none');
+          $('#heading2').css('font-weight', '700');
+          $('#heading1').css('font-weight', 'normal');
+          $('#heading3').css('font-weight', 'normal');
+          $('#hiddenDiv2').removeClass('d-none');
+          $('#hiddenDiv3').addClass('d-none');
+        }
+        if (event.target.id.indexOf('3') != -1) {
+          $('#uncheck1').removeClass('d-none');
+          $('#check1').addClass('d-none');
+          $('#uncheck2').removeClass('d-none');
+          $('#check2').addClass('d-none');
+          $('#uncheck3').addClass('d-none');
+          $('#check3').removeClass('d-none');
+          $('#hiddenDiv1').addClass('d-none');
+          $('#heading3').css('font-weight', '700');
+          $('#heading1').css('font-weight', 'normal');
+          $('#heading2').css('font-weight', 'normal');
+          $('#hiddenDiv2').addClass('d-none');
+          $('#hiddenDiv3').removeClass('d-none');
+        }
+      });
+      $(document).ready(function () {
+        $('body').on('click', '.updateButton', function () {
+          Swal.fire({
+            title: 'Great Job!',
+            iconHtml: '<img src="./images/hand.png">',
+            text: 'Your configurations have been updated successfully.',
+            type: 'success',
+            showConfirmButton: false,
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
